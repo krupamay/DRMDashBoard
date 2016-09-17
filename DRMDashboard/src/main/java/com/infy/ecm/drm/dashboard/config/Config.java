@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.marklogic.client.DatabaseClientFactory.Authentication;
-
 public class Config {
 
 	private static Properties props = loadProperties();
@@ -22,9 +20,6 @@ public class Config {
 	
 	protected static String admin_password = props.getProperty("drm.admin_password");
 	
-	protected static Authentication authType = Authentication.valueOf(
-				props.getProperty("drm.authentication_type").toUpperCase()
-				);
 
 	// get the configuration for the drm
 	private static Properties loadProperties() {		

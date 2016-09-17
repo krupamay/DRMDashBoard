@@ -33,9 +33,11 @@ public class DashBoardResource {
 	@Path("get")
 	@GET
 	public BurnDownInputResponse getBurnDownData(@Context UriInfo uriInfo) {
+		System.out.println("here");
 		String sprint = uriInfo.getQueryParameters().getFirst("sprint");
 		String team = uriInfo.getQueryParameters().getFirst("team");
 
+		
 		return dashBoardService.getBurnDownData(sprint, team);
 
 	}

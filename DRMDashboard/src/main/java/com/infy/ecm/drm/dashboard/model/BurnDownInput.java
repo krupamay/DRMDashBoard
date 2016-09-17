@@ -4,52 +4,38 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.marklogic.client.pojo.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @XmlRootElement
 public class BurnDownInput {
 
-	@Id
-	private Integer id;
-	private Integer day;
-	private Integer sprint;
+	private String day;
+	private String sprint;
 	private String team;
 	private Date date;
 	private Integer remianing;
 	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	/**
 	 * @return the day
 	 */
-	public Integer getDay() {
+	public String getDay() {
 		return day;
 	}
 	/**
 	 * @param day the day to set
 	 */
-	public void setDay(Integer day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 	/**
-	 * @return the sprInteger
+	 * @return the sprint
 	 */
-	public Integer getSprInteger() {
+	public String getSprint() {
 		return sprint;
 	}
 	/**
-	 * @param sprInteger the sprInteger to set
+	 * @param sprint the sprint to set
 	 */
-	public void setSprInteger(Integer sprint) {
+	public void setSprint(String sprint) {
 		this.sprint = sprint;
 	}
 	/**
@@ -67,6 +53,7 @@ public class BurnDownInput {
 	/**
 	 * @return the date
 	 */
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="UTC")
 	public Date getDate() {
 		return date;
 	}
@@ -88,7 +75,6 @@ public class BurnDownInput {
 	public void setRemianing(Integer remianing) {
 		this.remianing = remianing;
 	}
-	
 	
 	
 }
